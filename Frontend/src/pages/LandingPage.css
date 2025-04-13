@@ -7,7 +7,11 @@
 }
 
 body {
-  background: black;
+  background: black !important;
+}
+
+#home{
+  background-color: black;
 }
 
 a {
@@ -91,4 +95,8 @@ a {
   .section__margin {
     margin: 4rem 2rem;
   }  
+}
+#nh1{
+  width: 80%;
+  margin-left: 8rem;
 }
