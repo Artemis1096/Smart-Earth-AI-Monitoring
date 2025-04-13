@@ -5,16 +5,15 @@ import './Feature.css';
 const What = () => (
   <div className="gpt3__whatgpt3 section__margin" id="wgpt3">
     <div className="gpt3__whatgpt3-feature">
-      <Feature title="What We Do" text="We so observe Earth’s breath and sigh through eyes of sky and code. Ever-changing lands whisper truths we seek to unfold. Gentle watchers of forest fade, of water’s grace and air's wane, we employ clever thought and electric mind to sustain. With satellite gaze and sensor’s hum, we chart the world’s refrain — for nature’s care, and future’s gain, in harmony we remain." />
+      <Feature title="What We Do" text="Smart Earth AI Monitoring(SEAM) uses satellite images and artificial intelligence to observe and analyze the Earth’s surface. It helps detect vegetation health, classify land types like forests, urban areas, and water bodies, and spot early signs of environmental issues such as deforestation or drought. This information is shown on interactive maps to support better decision-making for sustainable development." />
     </div>
     <div className="gpt3__whatgpt3-heading">
-      <h1 className="gradient__text">The possibilities are beyond your imagination</h1>
-      <p>Explore</p>
+      <h1 className="gradient__text center">The possibilities are beyond your imagination</h1>
     </div>
     <div className="gpt3__whatgpt3-container">
-      <Feature title="Smart City " text="We so opinion friends me message as delight. Whole front do of plate heard oh ought." />
-      <Feature title="Vegetation Monitoring" text="At jointure ladyship an insisted so humanity he. Friendly bachelor entrance to on by. As put impossible own apartments b" />
-      <Feature title="Crop Yield Production" text="At jointure ladyship an insisted so humanity he. Friendly bachelor entrance to on by. As put impossible own apartments b" />
+      <Feature title="Smart City " text="Uses satellite images and artificial intelligence to observe and analyze the Earth’s surface." />
+      <Feature title="Vegetation Monitoring" text="Tracking the health and density of plant life using satellite imagery and AI." />
+      <Feature title="Urban Classification" text="Uses satellite imagery to categorize land areas based on urban development. It helps in monitoring city growth, infrastructure planning, and environmental management." />
     </div>
   </div>
 );

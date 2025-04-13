@@ -2,6 +2,12 @@ import React from 'react'
 import { Feature, Navbar } from '../components'
 import "./Explanation.css"
 import img from "../assets/img.jpg"
+import ClassifiedLULC from "../assets/Classified LULC.png"
+import GroupedLULC from "../assets/Grouped LULC.png"
+import NDVI from "../assets/NDVI.png"
+import VegetationDensity from "../assets/Vegetation Density.png"
+import VegetationSeverity from "../assets/Vegetation Severity.png"
+
 const featuresData1 = [
   {
     title: 'LULC ( Land Use and Land Cover )',
@@ -23,19 +29,29 @@ const featuresData1 = [
 
 const demoImages = [
   {
-    src: img,
-    title: 'LULC Map',
-    desc: 'Sample LULC classification map from satellite data.'
+    src: GroupedLULC,
+    title: 'Grouped LULC',
+    desc: 'Grouped_LC is a map that shows different types of land — like water, forests, cities, etc. Blue for Water, Orange for Vegetation, Red for Urban Areas, Gray for others ( Snow, Clouds or Unknown areas.)'
   },
   {
-    src: img,
-    title: 'NDVI Analysis',
-    desc: 'NDVI index showing vegetation health.'
+    src: ClassifiedLULC,
+    title: 'Classified LULC',
+    desc: 'Classified LULC is a map that the computer made by guessing what type of land is where — based only on the vegetation (NDVI) data.'
   },
   {
-    src: img,
+    src: NDVI,
+    title: 'NDVI',
+    desc: 'NDVI (Normalized Difference Vegetation Index) is a numerical indicator that uses satellite images to measure the presence and health of vegetation on Earth.'
+  },
+  {
+    src: VegetationDensity,
     title: 'Vegetation Density',
-    desc: 'Map depicting vegetation density classification.'
+    desc: 'Vegetation density tells us how much plant life is present in an area and how thick or healthy that plant life is.'
+  },
+  {
+    src: VegetationSeverity,
+    title: 'Vegetation Severity',
+    desc: 'Vegetation severity shows how badly an area is lacking healthy vegetation.Its based on how low or high the NDVI (Normalized Difference Vegetation Index) is.'
   }
 ];
 
@@ -43,7 +59,7 @@ const Explanation = () => {
   return (
     <div>
       <Navbar />
-      <hr id='nh1' />
+      {/* <hr id='nh1' /> */}
       <div>
         <div className="gpt3__features section__padding container" id="features">
           <div className='inner-container'>

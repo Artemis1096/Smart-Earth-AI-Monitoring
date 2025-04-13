@@ -22,11 +22,12 @@
     font-family: var(--font-family);
     font-weight: 800;
     font-size: 62px;
-    line-height: 75px;
+    line-height: 80px;
     letter-spacing: -0.04em;
 }
 
 .gpt3__header-content p {
+    margin-left: 2rem;
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 20px;
