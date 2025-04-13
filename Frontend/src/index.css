@@ -12,3 +12,24 @@
   --color-text: #81AFDD;
   --color-subtext: #FF8A71;
 }
+.aqi-content{
+  color : white;
+}
+.insight{
+  font-size: 1.7rem;
+}
+.aqi-details {
+  background-color: #f9f9f9;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.aqi-details h2 {
+  margin-bottom: 0.5rem;
+}
+
+.aqi-details ul {
+  padding-left: 1.2rem;
+  margin-top: 0.5rem;
+}
