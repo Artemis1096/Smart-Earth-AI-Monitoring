@@ -10,14 +10,14 @@ def generate_map(lat, lng):
         
     try:
         print("Attempting Earth Engine Initialization")
-        ee.Initialize(project='airgreen-javengers')
+        ee.Initialize(project='ee-jashanpreetsingh1096')
         print("Initialization Success!")
     except Exception as e:
         print("Initialization Failed: ", str(e))
         try:
             print("Attempting Authentication")
             ee.Authenticate()
-            ee.Initialize(project='airgreen-javengers')
+            ee.Initialize(project='ee-jashanpreetsingh1096')
             print("Initialization after Authentication Success!")
         except Exception as auth_error:
             print("Authentication Failed: ", str(auth_error))
@@ -174,9 +174,15 @@ def generate_map(lat, lng):
         )
 
         # Split samples into 70% training and 30% testing
-        samples = samples.randomColumn()
+        samples = samples.randomColumn(columnName='random', seed=42)
+
+        print("Generated samples, checking size...")
+        size = samples.size()
+        print("Size (object):", size)  # This is the line likely failing
         training = samples.filter(ee.Filter.lt('random', 0.7))
         testing = samples.filter(ee.Filter.gte('random', 0.7))
+        print("Training samples:", training.size().getInfo())
+        print("Testing samples:", testing.size().getInfo())
 
         # Train Random Forest Classifier
         classifier = ee.Classifier.smileRandomForest(
