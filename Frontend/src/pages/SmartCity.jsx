@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navbar,CoordinatesFinder } from '../components'
-import { Footer } from '../containers'
+import "./Explanation.css"
+
 const SmartCity = () => {
   return (
     <div>

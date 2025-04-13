@@ -15,9 +15,8 @@ const Navbar = () => {
         </div>
         <div className="gpt3__navbar-links_container">
           <p><Link to="/">Home</Link></p>
-          <p><Link to="/smart-city">Smart City</Link></p> {/* Link to Smart City page */}
-          <p><Link to="#possibility">Vegetation Monitoring</Link></p>
-          <p><Link to="#blog">Crop Yield Prediction</Link></p>
+          <p><Link to="/smart-city">Smart City Monitoring</Link></p> {/* Link to Smart City page */}
+          <p><Link to="/WhatDoesItRepresents">What does our data represents</Link></p>
         </div>
       </div>
       <div className="gpt3__navbar-menu">
