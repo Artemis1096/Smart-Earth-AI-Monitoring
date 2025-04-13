@@ -1,23 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';  // Update to import Routes from react-router-dom
-import CoordsFinder from './components/smart ai map/coordsfinder';
+import SmartCity from './pages/SmartCity';
 import AiMap from './components/smart ai map/aimap';
-import { Footer, Possibility, Features, What, Header } from './containers';
-import { Navbar } from './components';
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Router components
+import LandingPage from "./pages/LandingPage"
 import './App.css';
-
 const App = () => (
-  <div className="App">
-    <div className="gradient__bg">
-      <Navbar />
-      <Header />
-    </div>
-    <What />
-    <Features />
-    <Possibility />
-    <Footer />
-  </div>
+  <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} /> {/* Default route */}
+        <Route path="/smart-city" element={<SmartCity />} />
+        <Route path="/aimap" element={<AiMap />} />
+      </Routes>
+  </Router>
 );
 
 export default App;

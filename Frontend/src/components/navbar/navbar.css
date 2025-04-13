@@ -2,10 +2,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    background-color: black;
     padding: 0rem 6rem;
 }
-
 
 .gpt3__navbar-links {
     flex: 1;

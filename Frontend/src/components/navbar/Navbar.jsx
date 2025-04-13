@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import logo from '../../logo.png';
 import './navbar.css';
 
@@ -13,11 +14,10 @@ const Navbar = () => {
           <img className="logo" src={logo} />
         </div>
         <div className="gpt3__navbar-links_container">
-          <p><a href="#home">Home</a></p>
-          <p><a href="#wgpt3">Smart City</a></p>
-          <p><a href="#possibility">Vegetation Monitoring</a></p>
-          {/* <p><a href="#features">Flood Monitoring</a></p> */}
-          <p><a href="#blog">Crop Yield Prediction</a></p>
+          <p><Link to="/">Home</Link></p>
+          <p><Link to="/smart-city">Smart City</Link></p> {/* Link to Smart City page */}
+          <p><Link to="#possibility">Vegetation Monitoring</Link></p>
+          <p><Link to="#blog">Crop Yield Prediction</Link></p>
         </div>
       </div>
       <div className="gpt3__navbar-menu">
@@ -25,15 +25,15 @@ const Navbar = () => {
           ? <RiCloseLine color="#fff" size={27} onClick={() => setToggleMenu(false)} />
           : <RiMenu3Line color="#fff" size={27} onClick={() => setToggleMenu(true)} />}
         {toggleMenu && (
-        <div className="gpt3__navbar-menu_container scale-up-center">
-          <div className="gpt3__navbar-menu_container-links">
-            <p><a href="#home">Home</a></p>
-            <p><a href="#wgpt3">What is GPT3?</a></p>
-            <p><a href="#possibility">Open AI</a></p>
-            <p><a href="#features">Case Studies</a></p>
-            <p><a href="#blog">Library</a></p>
+          <div className="gpt3__navbar-menu_container scale-up-center">
+            <div className="gpt3__navbar-menu_container-links">
+              <p><Link to="/">Home</Link></p>
+              <p><Link to="#wgpt3">What is GPT3?</Link></p>
+              <p><Link to="#possibility">Open AI</Link></p>
+              <p><Link to="#features">Case Studies</Link></p>
+              <p><Link to="#blog">Library</Link></p>
+            </div>
           </div>
-        </div>
         )}
       </div>
     </div>

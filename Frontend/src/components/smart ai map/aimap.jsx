@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Navbar from "../navbar/Navbar"
 
 function AiMap() {
   const lat = localStorage.getItem('lat');
@@ -50,8 +51,8 @@ function AiMap() {
 
   return (
     <div>
-      <h1>Smart AI Map</h1>
-
+      <Navbar/>
+      <div className='gradient__text heading'>Selected Area Analysis</div>
       {loading && <p>Generating map, please wait...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
@@ -60,9 +61,7 @@ function AiMap() {
           id="mapIframe"
           src="http://localhost:5000/map"
           title="Vegetation Map"
-          width="100%"
-          height="600px"
-          style={{ border: 'none' }}
+          className='GenMap'
           onLoad={onMapLoad}
         />
       )}
