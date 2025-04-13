@@ -59,7 +59,7 @@ const Explanation = () => {
   return (
     <div>
       <Navbar />
-      <hr id='nh1' />
+      {/* <hr id='nh1' /> */}
       <div>
         <div className="gpt3__features section__padding container" id="features">
           <div className='inner-container'>

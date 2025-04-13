@@ -8,7 +8,7 @@ const Footer = () => (
     </div>
 
     <div className="gpt3__footer-btn">
-      <p><a href="#wgpt3">Explore our Models</a></p>
+      <p><a href="/">Explore</a></p>
     </div>
     <div className="gpt3__footer-copyright">
       <p>@2025 Javengers. All rights reserved.</p>
