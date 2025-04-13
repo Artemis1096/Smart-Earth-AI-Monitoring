@@ -17,7 +17,7 @@ def urban_map(lat, lng):
     # --------------------------------------------
     # Define Area of Interest (AOI)
     # --------------------------------------------
-    point = ee.Geometry.Point(81.6261,21.2321)
+    point = ee.Geometry.Point(float(lng),float(lat))
     aoi = point.buffer(5000).bounds()  # 5 km buffer
 
     # Setup Map

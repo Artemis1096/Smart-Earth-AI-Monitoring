@@ -5,6 +5,8 @@ import Explanation from "./pages/Explanation";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Router components
 import LandingPage from "./pages/LandingPage"
 import './App.css';
+import Aqi from "./components/Aqi"
+
 const App = () => (
   <Router>
       <Routes>
@@ -12,6 +14,7 @@ const App = () => (
         <Route path="/smart-city" element={<SmartCity />} />
         <Route path="/aimap" element={<AiMap />} />
         <Route path='/WhatDoesItRepresents' element={<Explanation/>} />
+        <Route path='/aqi' element={<Aqi />} />
       </Routes>
   </Router>
 );

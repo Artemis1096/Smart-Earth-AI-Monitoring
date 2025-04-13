@@ -4,6 +4,7 @@ import ee
 import geemap
 from vegetation import  generate_map 
 from urbanclassification import urban_map
+from aqi_data import get_aqi_insight
 # Initialize Earth Engine
 try:
     ee.Initialize(project='ee-jashanpreetsingh1096')
@@ -62,5 +63,37 @@ def receive_coordinates_vegetation():
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)})
 
+@app.route('/send-coordinates-aqi', methods=['POST'])
+def receive_coordinates_aqi():
+    data = request.get_json()
+    lat = data.get('lat')
+    lng = data.get('lng')
+
+    try:
+        lat = float(lat)
+        lng = float(lng)
+        print(f"For AQI - Received Coordinates: Latitude = {lat}, Longitude = {lng}")
+
+        result = get_aqi_insight(lat, lng)
+
+        if 'error' not in result:
+            return jsonify({
+                'status': 'success',
+                'city': result['city'],
+                'aqi': result['aqi'],
+                'insight': result['insight']
+            })
+        else:
+            return jsonify({
+                'status': 'error',
+                'message': result['error']
+            })
+
+    except (ValueError, TypeError):
+        return jsonify({'status': 'error', 'message': 'Invalid latitude or longitude.'})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)})
+
 if __name__ == '__main__':
+    print("Starting Flask app...")
     app.run(debug=True)

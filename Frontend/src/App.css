@@ -88,3 +88,136 @@ a {
     margin: 4rem 2rem;
   }  
 }
+
+.aqi-wrapper {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 32px;
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.8;
+}
+
+.aqi-title {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  text-align: center;
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+.aqi-coords {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #cbd5e1;
+}
+
+.aqi-status,
+.aqi-error {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.aqi-error {
+  color: #f87171;
+}
+
+.aqi-card {
+  margin-top: 32px;
+  padding: 24px;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  border-left: 5px solid #38bdf8;
+}
+
+.aqi-location {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #facc15;
+}
+
+.aqi-number {
+  font-size: 1.2rem;
+  margin-bottom: 24px;
+}
+
+.insight {
+  margin-top: 24px;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #4ade80;
+}
+
+.aqi-suggestions {
+  margin-top: 12px;
+  margin-bottom: 24px;
+  padding-left: 20px;
+}
+
+.aqi-suggestions li {
+  margin-bottom: 12px;
+  padding-left: 6px;
+}
+
+strong {
+  color: #fcd34d;
+}
+
+/* Custom styling for insights */
+.classification {
+  background-color: #e0f7fa;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+}
+
+.classification h3 {
+  color: #00796b;
+}
+
+.classification p {
+  font-size: 16px;
+  color: #004d40;
+}
+
+.suggestions {
+  background-color: #fff9c4;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.suggestions h3 {
+  color: #fbc02d;
+}
+
+.suggestions ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.suggestions li {
+  font-size: 14px;
+  color: #8e6e00;
+}
+
+.analysis {
+  background-color: #ffccbc;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.analysis h3 {
+  color: #d32f2f;
+}
+
+.analysis p {
+  font-size: 14px;
+  color: #b71c1c;
+}
