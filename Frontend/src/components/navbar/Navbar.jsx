@@ -16,7 +16,7 @@ const Navbar = () => {
           <p><a href="#home">Home</a></p>
           <p><a href="#wgpt3">Smart City</a></p>
           <p><a href="#possibility">Vegetation Monitoring</a></p>
-          <p><a href="#features">Flood Monitoring</a></p>
+          {/* <p><a href="#features">Flood Monitoring</a></p> */}
           <p><a href="#blog">Crop Yield Prediction</a></p>
         </div>
       </div>
