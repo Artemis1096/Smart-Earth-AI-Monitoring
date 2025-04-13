@@ -10,14 +10,14 @@ def generate_map(lat, lng):
         
     try:
         print("Attempting Earth Engine Initialization")
-        ee.Initialize(project='airgreen-javengers')
+        ee.Initialize(project='ee-jashanpreetsingh1096')
         print("Initialization Success!")
     except Exception as e:
         print("Initialization Failed: ", str(e))
         try:
             print("Attempting Authentication")
             ee.Authenticate()
-            ee.Initialize(project='airgreen-javengers')
+            ee.Initialize(project='ee-jashanpreetsingh1096')
             print("Initialization after Authentication Success!")
         except Exception as auth_error:
             print("Authentication Failed: ", str(auth_error))

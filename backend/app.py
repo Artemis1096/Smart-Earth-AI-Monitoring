@@ -6,10 +6,10 @@ from vegetation import  generate_map
 from urbanclassification import urban_map
 # Initialize Earth Engine
 try:
-    ee.Initialize(project='airgreen-javengers')
+    ee.Initialize(project='ee-jashanpreetsingh1096')
 except Exception as e:
     ee.Authenticate()
-    ee.Initialize(project='airgreen-javengers')
+    ee.Initialize(project='ee-jashanpreetsingh1096')
 
 app = Flask(__name__)
 CORS(app)

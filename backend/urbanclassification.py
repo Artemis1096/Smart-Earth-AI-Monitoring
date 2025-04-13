@@ -9,10 +9,10 @@ def urban_map(lat, lng):
     lng = float(lng)
     
     try:
-        ee.Initialize(project='airgreen-javengers')
+        ee.Initialize(project='ee-jashanpreetsingh1096')
     except Exception as e:
         ee.Authenticate()
-        ee.Initialize(project='airgreen-javengers')
+        ee.Initialize(project='ee-jashanpreetsingh1096')
 
     # --------------------------------------------
     # Define Area of Interest (AOI)
