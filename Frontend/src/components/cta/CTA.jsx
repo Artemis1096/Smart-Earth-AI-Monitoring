@@ -4,11 +4,9 @@ import './cta.css';
 const CTA = () => (
   <div className="gpt3__cta">
     <div className="gpt3__cta-content">
-      <p>Request Early Access to Get Started</p>
-      <h3>Register Today & start exploring the endless possibilities.</h3>
-    </div>
-    <div className="gpt3__cta-btn">
-      <button type="button">Get Started</button>
+      <h1 className='headline'>Smart City Planner</h1>
+      <br />
+      <p className='para'>Select the Area where you are planning to make the Smart City</p>
     </div>
   </div>
 );

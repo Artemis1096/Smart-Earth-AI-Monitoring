@@ -1,0 +1,31 @@
+.aqi-wrapper {
+    color: black;
+}
+
+.aqi-number {
+    color: white;
+}
+
+.insight{
+    color: white;
+}
+
+.gradient__text {
+    background: var(--gradient-text);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.aqi-coords{
+    text-align: center;
+    font-weight: 700;
+}
+
+.aqi-insights{
+    color: white;
+}
+
+.aqi-status{
+    color: white;
+}

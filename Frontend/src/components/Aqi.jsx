@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-
+import NavBar from "./navbar/Navbar"
+import "./Aqi.css"
 const Aqi = () => {
   const location = useLocation();
   const { lat, lng } = location.state || {};
@@ -62,29 +63,36 @@ const Aqi = () => {
 
   // Render content
   return (
+    <div>
+      <NavBar/>
     <div className="aqi-wrapper">
-      <h1 className="aqi-title">AQI Information</h1>
+      <h1 className="gradient__text">AQI Information</h1>
+      <br />
       <p className="aqi-coords">Latitude: {lat || 'N/A'}</p>
       <p className="aqi-coords">Longitude: {lng || 'N/A'}</p>
+      <br />
 
       {loading && <p className="aqi-status">Loading AQI and AI generating ...</p>}
       {error && <p className="aqi-error">Error: {error}</p>}
       
       {aqiData && (
-        <div className="aqi-card" style={{ borderLeft: `5px solid ${getAqiClassification(aqiData.aqi).color}` }}>
-          <h2 className="aqi-location" style={{ color: getAqiClassification(aqiData.aqi).color }}>
+        <div className="aqi-card">
+          <h2 className="gradient__text">
             {aqiData.city}
           </h2>
+          <br />
           <p className="aqi-number">
-            <strong>AQI:</strong> {aqiData.aqi}
+            <strong className='gradient__text'>AQI:</strong> {aqiData.aqi}
           </p>
           <h3 className="insight">Insights:</h3>
+          <br />
           <div
             className="aqi-insights"
             dangerouslySetInnerHTML={{ __html: aqiData.insight }}  // Render HTML from AI
           />
         </div>
       )}
+    </div>
     </div>
   );
 };

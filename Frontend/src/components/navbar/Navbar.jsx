@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../logo.png';
 import './navbar.css';
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogoClick = () => {
+    navigate('/');
+  };
 
   return (
     <div className="gpt3__navbar">
       <div className="gpt3__navbar-links">
         <div className="gpt3__navbar-links_logo">
-          <img className="logo" src={logo} />
+          <img className="logo" onClick={handleLogoClick} src={logo} alt="logo" />
         </div>
         <div className="gpt3__navbar-links_container">
           <p><Link to="/">Home</Link></p>
-          <p><Link to="/smart-city">Smart City Monitoring</Link></p> {/* Link to Smart City page */}
-          <p><Link to="/WhatDoesItRepresents">What does our data represents</Link></p>
+          <p><Link to="/smart-city">Smart City Monitoring</Link></p>
+          <p><Link to="/WhatDoesItRepresents">What does our data represent</Link></p>
         </div>
       </div>
       <div className="gpt3__navbar-menu">

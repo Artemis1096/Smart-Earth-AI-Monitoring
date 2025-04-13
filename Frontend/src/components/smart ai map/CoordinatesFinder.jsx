@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './SmartCity.css';
+import CTA from "../cta/CTA"
 
 function CoordinatesFinder() {
   const [coords, setCoords] = useState({ lat: 51.505, lng: -0.09 });
@@ -58,8 +59,9 @@ function CoordinatesFinder() {
 
   return (
     <div className="App">
-      <div className='gradient__text heading'>Smart City Planner</div>
-      <div className='gradient__text p'>Select the Area where you are planning to make the Smart City</div>
+      <CTA/>
+      {/* <div className='gradient__text heading'>Smart City Planner</div>
+      <div className='gradient__text p'>Select the Area where you are planning to make the Smart City</div> */}
       <div id="map"></div> {/* Corrected id */}
       <div id="coords">
         Latitude: {coords.lat.toFixed(5)}, Longitude: {coords.lng.toFixed(5)}
