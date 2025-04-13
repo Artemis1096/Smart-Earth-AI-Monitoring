@@ -1,19 +1,22 @@
 import ee
 import geemap
 import geemap.colormaps as cm
+import os
+from dotenv import load_dotenv
 
-
+load_dotenv()
+ProjectName = os.getenv("PROJECT_NAME")
 # Initialize Earth Engine
 def urban_map(lat, lng):
     lat = float(lat)
     lng = float(lng)
     
     try:
-        ee.Initialize(project='ee-jashanpreetsingh1096')
+        ee.Initialize(project=ProjectName)
     except Exception as e:
         ee.Authenticate()
-        ee.Initialize(project='ee-jashanpreetsingh1096')
-
+        ee.Initialize(project=ProjectName)
+ 
     # --------------------------------------------
     # Define Area of Interest (AOI)
     # --------------------------------------------
@@ -231,11 +234,33 @@ def urban_map(lat, lng):
     Map.addLayer(visualized_urban_water_vacant,
                 {'min': 0, 'max': 4, 'palette': urban_palette},
                 'Urban, Water & Vacant Areas')
-
+    
+    vis_params = {
+        'min': 0,
+        'max': 4,
+        'palette': urban_palette
+    }
     # --------------------------------------------
     # Display Map
     # --------------------------------------------
     try:
+        print("Generating PNG image")
+        # Get the thumbnail URL for the visualized image
+        thumb_url = visualized_urban_water_vacant.getThumbURL({
+            'region': aoi,
+            'dimensions': '1024x1024',  # Square dimensions for PNG
+            'format': 'png',
+            'min': vis_params['min'],
+            'max': vis_params['max'],
+            'palette': vis_params['palette']
+        })
+        print("PNG URL generated:", thumb_url)
+        
+        # Optionally, download the PNG to local disk
+        import urllib.request
+        urllib.request.urlretrieve(thumb_url, 'Urban_Water_Vacant.png')
+        print("PNG saved successfully as 'Urban_Water_Vacant.png'.")
+        
         print("Saving Map as HTML")
         Map.to_html('Map.html')
         print("Map saved successfully.")

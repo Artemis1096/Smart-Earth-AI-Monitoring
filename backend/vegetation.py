@@ -1,23 +1,27 @@
 import ee
 import geemap
 import geemap.colormaps as cm
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Initialize Earth Engine
+ProjectName = os.getenv("PROJECT_NAME")
 
 def generate_map(lat, lng):
     lat = float(lat)
     lng = float(lng)
-        
+         
     try:
         print("Attempting Earth Engine Initialization")
-        ee.Initialize(project='ee-jashanpreetsingh1096')
+        ee.Initialize(project=ProjectName)
         print("Initialization Success!")
     except Exception as e:
         print("Initialization Failed: ", str(e))
         try:
             print("Attempting Authentication")
             ee.Authenticate()
-            ee.Initialize(project='ee-jashanpreetsingh1096')
+            ee.Initialize(project=ProjectName)
             print("Initialization after Authentication Success!")
         except Exception as auth_error:
             print("Authentication Failed: ", str(auth_error))

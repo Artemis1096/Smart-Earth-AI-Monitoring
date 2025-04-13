@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import NavBar from "./navbar/Navbar"
+import { useNavigate } from 'react-router-dom';
 import "./Aqi.css"
 const Aqi = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const { lat, lng } = location.state || {};
 
@@ -93,6 +95,9 @@ const Aqi = () => {
         </div>
       )}
     </div>
+
+    <button onClick={() => navigate('/report')}>getReport</button>
+    
     </div>
   );
 };

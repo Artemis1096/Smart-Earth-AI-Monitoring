@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import ee
@@ -5,12 +6,17 @@ import geemap
 from vegetation import  generate_map 
 from urbanclassification import urban_map
 from aqi_data import get_aqi_insight
+from dotenv import load_dotenv
+from colorclassification import get_color_class
+ 
+load_dotenv()
 # Initialize Earth Engine
+ProjectName = os.getenv("PROJECT_NAME")
 try:
-    ee.Initialize(project='ee-jashanpreetsingh1096')
+    ee.Initialize(project=ProjectName)
 except Exception as e:
     ee.Authenticate()
-    ee.Initialize(project='ee-jashanpreetsingh1096')
+    ee.Initialize(project=ProjectName)
 
 app = Flask(__name__)
 CORS(app)
@@ -93,6 +99,11 @@ def receive_coordinates_aqi():
         return jsonify({'status': 'error', 'message': 'Invalid latitude or longitude.'})
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)})
+    
+@app.route('/calculate_percentages', methods=['GET'])
+def get_percentages():
+    percentages = get_color_class()
+    return percentages
 
 if __name__ == '__main__':
     print("Starting Flask app...")

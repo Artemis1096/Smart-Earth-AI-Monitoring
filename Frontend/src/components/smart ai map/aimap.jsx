@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from "../navbar/Navbar";
 import { useNavigate } from 'react-router-dom';
+
 import "./SmartCity.css"
 function AiMap() {
   const lat = localStorage.getItem('lat');
