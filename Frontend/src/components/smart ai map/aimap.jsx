@@ -57,7 +57,7 @@ function AiMap() {
     <div>
       <Navbar />
       <div className='gradient__text heading'>Selected Area Analysis</div>
-      {loading && <p>Generating map, please wait...</p>}
+      {loading && <p className='gradient__text'>Generating map, please wait...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
       {mapReady && !showMap2 && (

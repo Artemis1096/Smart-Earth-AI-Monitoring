@@ -74,7 +74,7 @@ const Aqi = () => {
       <p className="aqi-coords">Longitude: {lng || 'N/A'}</p>
       <br />
 
-      {loading && <p className="aqi-status">Loading AQI and AI generating ...</p>}
+      {loading && <p className="gradient__text">Loading AQI and AI generating ...</p>}
       {error && <p className="aqi-error">Error: {error}</p>}
       
       {aqiData && (
@@ -96,7 +96,7 @@ const Aqi = () => {
       )}
     </div>
 
-    <button onClick={() => navigate('/report')}>getReport</button>
+    <button className='btn' onClick={() => navigate('/report')}>getReport</button>
     
     </div>
   );

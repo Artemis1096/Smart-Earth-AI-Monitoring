@@ -105,6 +105,49 @@ def get_percentages():
     percentages = get_color_class()
     return percentages
 
+@app.route('/get-vegetation-timeseries', methods=['POST'])
+def get_vegetation_timeseries():
+    data = request.get_json()
+    lat = data.get('lat')
+    lng = data.get('lng')
+    start_date = data.get('start_date')  # format: 'YYYY-MM-DD'
+    end_date = data.get('end_date')      # format: 'YYYY-MM-DD'
+
+    try:
+        point = ee.Geometry.Point([float(lng), float(lat)])
+
+        # Use Sentinel-2 Surface Reflectance dataset
+        collection = (
+            ee.ImageCollection('COPERNICUS/S2_SR')
+            .filterBounds(point)
+            .filterDate(start_date, end_date)
+            .filter(ee.Filter.lt('CLOUDY_PIXEL_PERCENTAGE', 20))
+            .map(lambda image: image
+                 .normalizedDifference(['B8', 'B4'])
+                 .rename('NDVI')
+                 .copyProperties(image, ['system:time_start']))
+        )
+
+        def extract_ndvi(image):
+            mean = image.reduceRegion(
+                reducer=ee.Reducer.mean(),
+                geometry=point,
+                scale=10,
+                maxPixels=1e9
+            )
+            return ee.Feature(None, {
+                'date': ee.Date(image.get('system:time_start')).format('YYYY-MM-dd'),
+                'NDVI': mean.get('NDVI')
+            })
+
+        features = collection.map(extract_ndvi).aggregate_array('properties').getInfo()
+
+        return jsonify({'status': 'success', 'data': features})
+
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)})
+
+
 if __name__ == '__main__':
     print("Starting Flask app...")
     app.run(debug=True)
