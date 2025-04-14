@@ -88,4 +88,3 @@ def get_color_class():
         mimetype='application/json'
     )
     
-get_color_class()

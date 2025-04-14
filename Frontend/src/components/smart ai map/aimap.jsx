@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from "../navbar/Navbar";
 import { useNavigate } from 'react-router-dom';
-
+import { ClipLoader } from "react-spinners";
 import "./SmartCity.css"
 function AiMap() {
   const lat = localStorage.getItem('lat');
@@ -57,7 +57,14 @@ function AiMap() {
     <div>
       <Navbar />
       <div className='gradient__text heading'>Selected Area Analysis</div>
-      {loading && <p className='gradient__text'>Generating map, please wait...</p>}
+      {loading && (
+       <div className="loader-wrapper">
+        <div className="loader"></div>
+        <div style={{ textAlign: 'center', marginTop: '50px' }}>
+          <p class="loading-text">Generating map, please wait...</p>
+        </div>
+        </div>
+      )}
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
       {mapReady && !showMap2 && (
