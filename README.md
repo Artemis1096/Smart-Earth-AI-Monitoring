@@ -21,4 +21,3 @@ Smart Earth AI Monitoring(SEAM) uses satellite images and artificial intelligenc
 ![Smart City Map](https://drive.google.com/uc?export=view&id=1WGrK5NwmaBnOIIch2R7PDBsWyHiKbKEa)
 ![Smart City Map](https://drive.google.com/uc?export=view&id=19uPEy698_1Btz9iguVMgAmR24w0g-CKy)
 
-#AMUHACKS 4.0 #CSSAMU #AMU
