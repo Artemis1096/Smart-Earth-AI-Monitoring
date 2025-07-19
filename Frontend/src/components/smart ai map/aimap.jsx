@@ -20,11 +20,27 @@ function AiMap() {
         body: JSON.stringify({ lat, lng }),
       });
       const result = await response.json();
+  
       if (result.status === 'success') {
-        console.log('Map is ready');
-        setMapReady(true);
+        console.log('Urban Map is ready');
+  
+        // Now call vegetation endpoint
+        const vegetationResponse = await fetch('http://localhost:5000/send-coordinates-vegetation', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ lat, lng }),
+        });
+        const vegetationResult = await vegetationResponse.json();
+  
+        if (vegetationResult.status === 'success') {
+          console.log('Vegetation Map is ready');
+          setMapReady(true);
+        } else {
+          setError('Vegetation Map generation failed: ' + vegetationResult.message);
+        }
+  
       } else {
-        setError('Map generation failed: ' + result.message);
+        setError('Urban Map generation failed: ' + result.message);
       }
     } catch (err) {
       setError('Error while sending coordinates: ' + err.message);
@@ -32,6 +48,7 @@ function AiMap() {
       setLoading(false);
     }
   };
+  
 
   useEffect(() => {
     if (lat && lng) {
@@ -61,7 +78,7 @@ function AiMap() {
        <div className="loader-wrapper">
         <div className="loader"></div>
         <div style={{ textAlign: 'center', marginTop: '50px' }}>
-          <p class="loading-text">Generating map, please wait...</p>
+          <p className="loading-text">Generating map, please wait...</p>
         </div>
         </div>
       )}

@@ -10,13 +10,13 @@ ProjectName = os.getenv("PROJECT_NAME")
 def urban_map(lat, lng):
     lat = float(lat)
     lng = float(lng)
-    
+    print ("received in urban ",lat,"lng is ", lng)
+
     try:
         ee.Initialize(project=ProjectName)
     except Exception as e:
         ee.Authenticate()
         ee.Initialize(project=ProjectName)
- 
     # --------------------------------------------
     # Define Area of Interest (AOI)
     # --------------------------------------------
@@ -122,13 +122,13 @@ def urban_map(lat, lng):
     # Training accuracy
     train_matrix = classifier.confusionMatrix()
     train_accuracy = train_matrix.accuracy().getInfo()
-    print("Training Accuracy:", train_accuracy)
+    # print("Training Accuracy:", train_accuracy)
 
     # Testing accuracy
     classified_testing = testing.classify(classifier)
     test_matrix = classified_testing.errorMatrix('Urban_Water_Vacant', 'classification')
     test_accuracy = test_matrix.accuracy().getInfo()
-    print("Testing Accuracy:", test_accuracy)
+    # print("Testing Accuracy:", test_accuracy)
 
     # --------------------------------------------
     # Map Visualization for Urban, Water, and Vacant Areas
@@ -216,13 +216,13 @@ def urban_map(lat, lng):
     # Training accuracy
     train_matrix = classifier.confusionMatrix()
     train_accuracy = train_matrix.accuracy().getInfo()
-    print("Training Accuracy:", train_accuracy)
+    # print("Training Accuracy:", train_accuracy)
 
     # Testing accuracy
     classified_testing = testing.classify(classifier)
     test_matrix = classified_testing.errorMatrix('Urban_Water_Vacant', 'classification')
     test_accuracy = test_matrix.accuracy().getInfo()
-    print("Testing Accuracy:", test_accuracy)
+    # print("Testing Accuracy:", test_accuracy)
 
     # --------------------------------------------
     # Map Visualization for Urban, Water, and Vacant Areas
@@ -244,7 +244,7 @@ def urban_map(lat, lng):
     # Display Map
     # --------------------------------------------
     try:
-        print("Generating PNG image")
+        # print("Generating PNG image")
         # Get the thumbnail URL for the visualized image
         thumb_url = visualized_urban_water_vacant.getThumbURL({
             'region': aoi,
@@ -254,18 +254,18 @@ def urban_map(lat, lng):
             'max': vis_params['max'],
             'palette': vis_params['palette']
         })
-        print("PNG URL generated:", thumb_url)
+        # print("PNG URL generated:", thumb_url)
         
         # Optionally, download the PNG to local disk
         import urllib.request
         urllib.request.urlretrieve(thumb_url, 'Urban_Water_Vacant.png')
-        print("PNG saved successfully as 'Urban_Water_Vacant.png'.")
+        # print("PNG saved successfully as 'Urban_Water_Vacant.png'.")
         
-        print("Saving Map as HTML")
+        # print("Saving Map as HTML")
         Map.to_html('Map.html')
-        print("Map saved successfully.")
+        # print("Map saved successfully.")
         return True
     
     except Exception as e:
-        print("Error while saving map: ", str(e))
+        # print("Error while saving map: ", str(e))
         return False

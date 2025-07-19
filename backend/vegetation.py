@@ -181,10 +181,10 @@ def generate_map(lat, lng):
         samples = samples.randomColumn(columnName='random', seed=42)
 
         # print("Generated samples, checking size...")
-        # size = samples.size()
+        size = samples.size()
         # print("Size (object):", size)  # This is the line likely failing
         training = samples.filter(ee.Filter.lt('random', 0.7))
-        # testing = samples.filter(ee.Filter.gte('random', 0.7))
+        testing = samples.filter(ee.Filter.gte('random', 0.7))
         # print("Training samples:", training.size().getInfo())
         # print("Testing samples:", testing.size().getInfo())
 
