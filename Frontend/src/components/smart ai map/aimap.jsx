@@ -22,8 +22,7 @@ function AiMap() {
       const result = await response.json();
   
       if (result.status === 'success') {
-        console.log('Urban Map is ready');
-  
+        
         // Now call vegetation endpoint
         const vegetationResponse = await fetch('http://localhost:5000/send-coordinates-vegetation', {
           method: 'POST',

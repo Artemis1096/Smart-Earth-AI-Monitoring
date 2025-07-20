@@ -26,7 +26,7 @@ function CoordinatesFinder() {
 
   // Initialize the map when the component is mounted
   React.useEffect(() => {
-    const map = L.map('map').setView([51.505, -0.09], 13); // Correctly use ID selector
+    const map = L.map('map').setView([coords.lat, coords.lng], 13); // Correctly use ID selector
 
     // Add OpenStreetMap tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

@@ -1,2 +1,2 @@
-pip install flask flask-cors setuptools geemap earthengine-api pygnrok langchain_groq langchain flask flask-cors scikit-learn
+pip install dotenv flask flask-cors setuptools geemap earthengine-api  langchain_groq langchain flask flask-cors scikit-learn earthengine-api geemap opencv-python
 

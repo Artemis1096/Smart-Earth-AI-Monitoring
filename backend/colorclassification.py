@@ -11,7 +11,13 @@ load_dotenv()
 app = Flask(__name__)  # Only if this is part of a Flask app
 
 def kmeans_color_segmentation(image_path, k=4):
+    if not os.path.exists(image_path):
+        raise FileNotFoundError(f"Image file does not exist: {image_path}")
+    
     image = cv2.imread(image_path)
+    if image is None:
+        raise ValueError(f"cv2.imread failed to load the image at: {image_path}")
+    
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     h, w, _ = image.shape
     pixels = image.reshape((-1, 3))
@@ -21,6 +27,7 @@ def kmeans_color_segmentation(image_path, k=4):
     segmented_pixels = centers[labels]
     segmented_image = segmented_pixels.reshape((h, w, 3))
     return image, segmented_image, labels.reshape((h, w)), centers
+
 
 def get_color_name(rgb):
     r, g, b = rgb
